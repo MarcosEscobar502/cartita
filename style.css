@@ -1,0 +1,224 @@
+body {
+  background-color: #b2e0f8; /* Fondo celeste pálido */
+  overflow: hidden;
+}
+
+.background {
+  position: relative;
+  height: 100vh;
+}
+
+.envlope-wrapper {
+  height: 380px;
+  position: relative;
+}
+
+#envelope {
+  margin: 150px;
+  position: relative;
+  width: 280px;
+  height: 180px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  margin-left: auto;
+  margin-right: auto;
+  top: 150px;
+  background-color: #40e0d0; /* Color turquesa */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.front {
+  position: absolute;
+  width: 0;
+  height: 0;
+  z-index: 3;
+}
+
+.flap {
+  border-left: 140px solid transparent;
+  border-right: 140px solid transparent;
+  border-bottom: 82px solid transparent;
+  border-top: 98px solid #00b2a9; /* Color más oscuro */
+  transform-origin: top;
+  pointer-events: none;
+}
+
+.pocket {
+  border-left: 140px solid #40e0d0; /* Color turquesa */
+  border-right: 140px solid #40e0d0; /* Color turquesa */
+  border-bottom: 90px solid #39c0b5; /* Color más claro */
+  border-top: 90px solid transparent;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.letter {
+  position: relative;
+  background-color: #faf8f8;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 90%;
+  top: 5%;
+  border-radius: 6px;
+  box-shadow: 0 2px 26px rgba(0, 0, 0, 0.12);
+}
+
+.words {
+  position: absolute;
+  left: 10%;
+  width: 80%;
+  height: 14%;
+  background-color: #f6f4f4;
+}
+
+.words.line1 {  
+  top: 15%;
+}
+
+.words.line2 {
+  top: 25%;
+}
+
+.words.line3 {
+  top: 35%;
+}
+
+.open .flap {
+  transform: rotateX(180deg);
+  transition: transform 0.4s ease, z-index 0.6s;
+  z-index: 1;
+}
+
+.close .flap {
+  transform: rotateX(0deg);
+  transition: transform 0.4s 0.6s ease, z-index 1s;
+  z-index: 5;
+}
+
+.close .letter {
+  transform: translateY(0px);
+  transition: transform 0.4s ease, z-index 1s;
+  z-index: 1;
+}
+
+.open .letter {
+  transform: translateY(-60px);
+  transition: transform 0.4s 0.6s ease, z-index 0.6s;
+  z-index: 2;
+}
+
+.reset {
+  text-align: center;
+}
+
+.reset button {
+  font-weight: 800;
+  font-style: normal;
+  transition: all 0.1s linear;
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: solid 2px #ff5757;
+  border-radius: 4px;
+  color: #ff5757;
+  display: inline-block;
+  font-size: 14px;
+  text-transform: uppercase;
+  margin: 5px;
+  padding: 10px;
+  line-height: 1em;
+  text-decoration: none;
+  min-width: 120px;
+  cursor: pointer;
+}
+
+.reset button:hover {
+  background-color: #fc9d9d;
+  color: #a10000;
+}
+
+/* Animaciones de burbujas */
+@keyframes bubble {
+  0% {
+      transform: translateY(0);
+      opacity: 1;
+  }
+  100% {
+      transform: translateY(-100px);
+      opacity: 0;
+  }
+}
+
+
+
+/* Añadir mariposas */
+.mariposa {
+  width: 50px;
+  height: 50px;
+  background-image: url('https://example.com/butterfly.png'); /* Reemplaza con la URL de la imagen de la mariposa */
+  background-size: cover;
+}
+
+/* Animaciones de burbujas */
+@keyframes bubble {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+}
+
+.bubble {
+  position: absolute;
+  /* Cambiamos `bottom: 0;` para que cada burbuja tenga su altura inicial establecida en JavaScript */
+  width: 40px; /* Tamaño de la burbuja */
+  height: 40px; /* Tamaño de la burbuja */
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  animation: bubble 4s linear infinite; /* Duración de la animación */
+}
+
+/* Animación de burbujas */
+@keyframes bubble {
+  0% {
+      transform: translateY(0);
+      opacity: 1;
+  }
+  100% {
+      transform: translateY(-300px); /* Subir más */
+      opacity: 0;
+  }
+}
+
+/* Burbuja individual con variaciones */
+.bubble:nth-child(1) {
+    left: 10%;
+    animation-duration: 3s;
+    animation-delay: 0s;
+}
+
+.bubble:nth-child(2) {
+    left: 25%; /* Posición diferente */
+    animation-duration: 4s;
+    animation-delay: 1s;
+}
+
+.bubble:nth-child(3) {
+    left: 40%; /* Posición diferente */
+    animation-duration: 5s;
+}
+
+.bubble:nth-child(4) {
+    left: 55%; /* Posición diferente */
+    animation-duration: 6s;
+}
+
+.bubble:nth-child(5) {
+    left: 70%; /* Posición diferente */
+    animation-duration: 4.5s;
+}
+
+/* Continúa añadiendo más burbujas con diferentes posiciones */
